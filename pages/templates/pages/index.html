@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'pages/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'pages/css/index-queries.css' %}">
+{% endblock %}
+{% block title %} | Welcome {% endblock %}
+
+{% block content %} 
+
+<section id='top-container'>
+    <div class='container'>
+        <div class="jumbotron" id='search-box'>
+            <h1 class="display-4">Dream Homes</h1>
+            <p class="lead">We want to help you to find the perfect home for you! So tell us a bit more about what matters to you most</p>
+            <!-- Search box -->
+            <form action="{% url 'search' %}" method="GET">
+                {% csrf_token %}
+                <div class='container'>
+                    <div class="row form-group">
+                        <!-- Location -->
+                        <div class="col-12 col-md-6" id='location-container'>
+                            <input type="text" name='location' id='location' class="form-control" placeholder="Location" aria-describedby="locationHelp">
+                            <small id="locationHelp" class="form-text">Enter the city/town/postcode</small>
+                        </div>
+                        <!-- Keywords -->
+                        <div class="col-12 col-md-6" id='keywords-container'    >
+                            <input type="text" name='keywords' id='bedrooms' class="form-control" placeholder="Keywords" aria-describedby="keywordsHelp">
+                            <small id="keywordsHelp" class="form-text">Seperate each keyword using a comma</small>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <!-- Number of Bedrooms -->
+                        <div class="col-12 col-md-6" id='bedrooms-container'>
+                            <select name="bedrooms" id="bedrooms" class="form-control">
+                                <option selected='true' disabled='disabled'>Number of Bedrooms</option>
+                                {% for key, value in bedroom_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <!-- Max Price -->
+                        <div class="col-12 col-md-6" id='price-container'>
+                            <select name="price" id="price" class="form-control">
+                                <option selected='true' disabled='disabled'>Max Price</option>
+                                {% for key, value in price_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <button type="submit" id='search-submit' class='btn'>Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section id="latest-listings">
+        <!-- Messages -->
+        {% include 'partials/_messages.html' %}
+    <div class="container">
+        <h2>Latest Listings</h2>
+        <div class="row">
+            {% if listings %}
+                {% for listing in listings %}
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card">
+                            <a href="{% url 'listing' listing.id %}">
+                                <img class="card-img" src="{{ listing.photo_main.url }}" alt="">
+                            </a>
+                            <div class="card-img-overlay" onclick="window.location=&quot;{% url 'listing' listing.id %}&quot;">
+                                <a class="btn price" id='listing-price'>
+                                   <span class='price-text'>£{{ listing.price | intcomma }}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <!-- Listing Title -->
+                            <div class="row" id='listing-title'>
+                                <div class="col-1">
+                                    <p class="card-text primary-color"><i class="fas fa-map-marker-alt"></i></p>
+                                </div>
+                                <div class="col">
+                                    <p class="card-text primary-color">{{ listing.title }}</p>
+                                </div>
+                            </div>
+                            <!-- No of Bedrooms -->
+                            <div class="row" id='listing-bedrooms'>
+                                <div class="col-1">
+                                    <p class="card-text primary-color"><i class="fas fa-bed"></i></p>
+                                </div>
+                                <div class="col">
+                                    <p class="card-text primary-color">Bedrooms: {{ listing.bedrooms }}</p>
+                                </div>
+                            </div>
+                            <!-- No of Bathrooms -->
+                            <div class="row" id='listing-bathrooms'>
+                                <div class="col-1">
+                                    <p class="card-text primary-color"><i class="fas fa-bath"></i></p>
+                                </div>
+                                <div class="col">
+                                    <p class="card-text primary-color">Bathrooms: {{ listing.bathrooms }}</p>
+                                </div>
+                            </div>
+                            <!-- Listing Date -->
+                            <div class="row" id='listing-date'>
+                                <div class="col-1">
+                                    <p class="card-text primary-color"><i class="fas fa-clock"></i></p>
+                                </div>
+                                <div class="col">
+                                    <p class="card-text primary-color">{{ listing.list_date | naturaltime }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>There are no listings</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block footer %}
+    <script src="{% static 'pages\js\index.js' %}"></script>
+{% endblock %}

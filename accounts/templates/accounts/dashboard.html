@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}">
+    <script src="{% static 'js/leaflet.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'accounts/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/dashboard-queries.css' %}">
+{% endblock %}
+{% block title %} | {{ user.first_name }}'s Dashboard Register {% endblock %}
+
+{% block content %} 
+    <section>
+        <!-- Messages -->
+        {% include 'partials/_messages.html' %}
+
+        <div class="container">
+            
+            {% regroup enquiries by listing_id as listing_group %}
+
+            {% for listing in listing_group %}
+                <div class="listing">
+                    <!-- Listing Title-->
+                    <div class="listing-header">
+                        <div class="row">
+                            <div class="col-8 title primary-color">
+                                <a href="{% url 'listing' listing.grouper.id %}">
+                                    <h4>{{ listing.grouper }}</h4>
+                                </a>
+                            </div>
+                            <div class="col-4 price">
+                                <h4>£{{ listing.grouper.price|intcomma }}</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Listing Image (left) -->
+                            <div class="col-12 col-lg-8 listing-img">
+                                <a href="{% url 'listing' listing.grouper.id %}">
+                                    <img src="{{ listing.grouper.photo_main.url }}" alt="">
+                                </a>
+                            </div>
+
+                                <!-- Listing Information -->
+                            <div class="col-12 col-lg-4 listing-info">
+
+                                <!-- Address -->
+                                <div class="row info-section address">
+                                    <div class="col-3 col-md-2 col-lg-3 info-sub-heading">
+                                        <p>Address:</p>
+                                    </div>
+                                    <div class="col-9 col-lg-9 info-content">
+                                        <p>{{ listing.grouper.address }}, {{ listing.grouper.city }}, {{ listing.grouper.postcode }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Bedrooms -->
+                                <div class="row info-section bedrooms">
+                                    <div class="col-3 col-md-2 col-lg-3 info-sub-heading">
+                                        <p>Bedrooms:</p>
+                                    </div>
+                                    <div class="col-9 col-lg-9 info-content">
+                                        <p>{{ listing.grouper.bedrooms }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Bathrooms -->
+                                <div class="row info-section bathrooms">
+                                    <div class="col-3 col-md-2 col-lg-3 info-sub-heading">
+                                        <p>Bathrooms:</p>
+                                    </div>
+                                    <div class="col-9 col-lg-9 info-content">
+                                        <p>{{ listing.grouper.bathrooms }}</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Garages -->
+                                <div class="row info-section garages">
+                                    <div class="col-3 col-md-2 col-lg-3 info-sub-heading">
+                                        <p>Garages:</p>
+                                    </div>
+                                    <div class="col-9 col-lg-9 info-content">
+                                        <p>{{ listing.grouper.garage }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Description -->
+                                <div class="row info-section description">
+                                    <div class="col info-details">
+                                        <p>{{ listing.grouper.description }}</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+
+                <!-- Messages -->
+                <div class="messages">
+                    {% for enquiry in listing.list %}
+                        <div class="enquiry-message {{enquiry.user_group}}-message">
+                            <div class="message">
+                                <p>{{ enquiry.message }}</p>
+                            </div>
+                            <div class="contact-date">
+                                <p>- {{ enquiry.first_name }} -  {{ enquiry.message_date }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- New Message  -->
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea class='form-control' name="new-message" id="new-message" placeholder="Enter your message" required></textarea>
+                    
+                        <input type="hidden" name='listing-id' value='{{ listing.grouper.id }}'>
+                        <div class="button-container">
+                            <button type="submit" id='enquiry-form-submit' class="btn highlight-bg-color">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+            {% endfor %}
+        
+        </div>
+    </section>
+    
+{% endblock %}
+
+{% block footer %}
+    <script src="{% static 'accounts/js/dashboard.js' %}"></script>
+{% endblock %}

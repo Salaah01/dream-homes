@@ -1,0 +1,158 @@
+/* Section: Listing */
+section.listing {
+    height: 100%;
+    background-color: inherit;
+}
+
+/* Left Side */
+#listing-header {
+    margin: 30px 0 10px 0;
+} 
+
+#listing-price {
+    text-align: right;
+}
+
+.listing-box {
+    padding: 0;
+}
+
+#listing-price,
+#listing-title,
+#listing-address {
+    padding: 0;
+}
+
+#listing-address {
+    font-size: 16px;
+}
+
+#listing-address p {
+    margin-bottom: 0;
+}
+
+h4 {
+    font-size: 1.5em;
+    letter-spacing: 0.5px;
+}
+
+#listing-price {
+    color: #009177;
+}
+
+.thumbs {
+    display: flex;
+    justify-content: center;
+}
+
+.thumb-img {
+    height: 80px;
+    width: 100px;
+    object-fit: cover;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+/* Right Side */
+
+#right-container {
+    padding: 103px 0 0 50px;
+}
+
+#enquiry-btn {
+    margin: 0 auto;
+    width: 94%;
+    color: #fff;
+}
+
+#content {
+    margin-top: 25px;
+}
+
+#content p {
+    font-weight: 500;
+    font-size: 16px;
+    text-align: justify;
+    margin-bottom: 2px;
+}
+
+#content p span,
+#content p.content {
+    color: #000;
+    font-weight: 300;
+}
+
+/* Map */
+#mapid { 
+    height: 280px;
+    margin-top: 20px;
+}
+
+/* Description (bottom) */
+
+#listing-description {
+    margin: 30px 0;
+}
+
+#listing-description p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+#description-heading {
+    font-weight: 500;
+}
+
+/* Enquiry Form */
+
+#enquiry-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+}
+
+#enquiry-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form {
+   width: 100%;
+   height: 50px;
+   background-color: white;
+   border-radius: 5px;
+   border: 1px solid #24afce;
+   padding: 30px 20px;
+   overflow-y: auto;
+}
+
+#button-container {
+    width: 100%;
+    display: flex;
+    align-content: center;
+}
+
+#enquiry-form textarea {
+    margin-bottom: 26px;
+}
+
+#enquiry-form-submit {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#enquiry-form .form::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+#enquiry-form .form::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+#enquiry-form .form::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}

@@ -1,0 +1,56 @@
+@media only screen and (max-width: 940px) {
+    
+    #search-bar small {
+        font-size: 70%;
+    }
+
+}
+
+@media only screen and (max-width: 830px) {
+    
+    #search-bar small {
+        font-size: 63%;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    
+    #search-bar small {
+        font-size: 80%;
+        margin-top: 0px;
+    }
+
+    #search-bar .search-element {
+        margin-bottom: 10px;
+    }
+
+    #search-bar .btn {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 484px) {
+
+    #search-bar small {
+        font-size: 70%;
+    }
+
+}
+
+@media only screen and (max-width: 426px) {
+
+    #search-bar small {
+        font-size: 65%;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    #search-bar .search-element#price-container {
+        padding-right: 0;
+    }
+
+}

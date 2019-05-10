@@ -1,0 +1,98 @@
+@media only screen and (max-width: 990px) {
+    
+    a.btn.price {
+        padding-bottom: 4px;
+    }
+
+    .price-text {
+        font-size: 0.8em;
+    }
+
+    .card-img-overlay {
+        padding: 10px;
+    }
+
+    p.card-text {
+        font-size: 1em;
+    }
+
+    #listing-title {
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    #top-container .form-group:first-of-type {
+        margin-bottom: 0;
+    }
+    
+    #search-box {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #location-container,
+    #keywords-container,
+    #bedrooms-container,
+    #price-container {
+        margin-bottom: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+
+    .price-text {
+        font-size: 1em;
+    }
+
+    p.card-text {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .fas {
+        display: none;
+    }
+
+    .card-img-overlay {
+        padding: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 414px) {
+
+    .lead {
+        margin-bottom: 25px;
+    }
+
+@media only screen and (max-width: 375px) {
+
+    h1.display-4 {
+        font-size: 3rem;
+    }
+
+    .lead {
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+
+    h1.display-4 {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    small {
+        font-size: 75%;
+    }
+
+}

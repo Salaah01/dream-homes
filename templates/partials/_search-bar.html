@@ -1,0 +1,46 @@
+<section id="search-bar">
+    <form action="{% url 'search' %}" method="GET">
+        <div class="row">
+            <!-- Keywords -->
+            <div class="search-element col-6 col-sm-6 col-md-4" id="keyword-container">
+                <input type="text" name='keywords' id='keywords' class="form-control" placeholder="Keywords" aria-describedby="keywordsHelp" value="{{ values.keywords }}">
+                <small id="keywordsHelp" class="form-text">Seperate each keyword using a comma</small>
+            </div>
+            <!-- Location -->
+            <div class="search-element col-6 col-sm-6 col-md-3" id='location-container'>
+                <input type="text" name='location' id='location' class="form-control" placeholder="Location" aria-describedby="locationHelp" value="{{ values.location }}">
+                <small id="locationHelp" class="form-text">Enter the city/town/postcode</small>
+            </div>
+            <!-- Number of Bedrooms -->
+            <div class="search-element col-4 col-sm-5 col-md-2" id="bedroom-container">
+                <select name="bedrooms" id="bedrooms" class="form-control">
+                    <option selected='true' disabled='disabled'>Bedrooms</option>
+                    {% for key, value in bedroom_choices.items %}
+                        <option value="{{ key }}"
+                            {% if key == values.bedrooms %}
+                                selected
+                            {% endif %}
+                        >{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Max Price -->
+            <div class="search-element col-4 col-sm-5 col-md-2" id="price-container">
+                <select name="price" id="price" class="form-control">
+                    <option selected='true' disabled='disabled'>Max Price</option>
+                    {% for key, value in price_choices.items %}
+                        <option value="{{ key }}"
+                            {% if key == values.price %}
+                                selected
+                            {% endif %}
+                        >{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Submit Button -->
+            <div class="search-element col-4 col-sm-2 col-md-1" id='submit-btn-container'>
+                <button type="submit" id='search-submit' class='btn'>Search</button>
+            </div>
+        </div>
+    </form>
+</section>

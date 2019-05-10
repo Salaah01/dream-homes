@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}">
+    <script src="{% static 'js/leaflet.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'listings/css/listing.css' %}">
+    <link rel="stylesheet" href="{% static 'listings/css/listing-queries.css' %}">
+{% endblock %}
+{% block title %} | {{ listing.title }} {% endblock %}
+    
+{% block content %}
+
+<!-- Search Bar -->
+{% include 'partials/_search-bar.html' %}
+
+<section class="listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-7 listing-box" id='left-container'>
+                <!-- Picture Header -->
+                <div class="row" id='listing-header'>
+                    <div id ='listing-title' class="col-8">
+                        <h4 class='primary-color'>{{ listing.bedrooms }} Bedroom House<span> for Sale</span></h4>
+                    </div>
+                    <div id ='listing-price' class="col-4">
+                        <h4>£{{ listing.price | intcomma }}</h4>
+                    </div>
+                    <div class="col" id='listing-address'>
+                        <p>{{ listing.address }}, {{ listing.city }}, {{ listing.postcode }}</p>
+                    </div>
+                </div>
+                <!-- Main Image -->
+                <a href="{{ listing.photo_main.url }}" data-lightbox="house-img">
+                    <img src="{{ listing.photo_main.url }}" alt="" class='img-main img-fluid mb-3'>
+                </a>
+                <!-- Thumbnails -->
+                <div class="row thumbs">
+                    <!-- Photo 1 -->
+                    {% if listing.photo_1 %}
+                        <div class="thumb-img-container">
+                            <a href="{{ listing.photo_1.url }}" data-lightbox='house-img'>
+                                <img class='thumb-img' src="{{ listing.photo_1.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                    <!-- Photo 2 -->
+                    {% if listing.photo_2 %}
+                        <div class="thumb-img-container">
+                            <a href="{{ listing.photo_2.url }}" data-lightbox='house-img'>
+                                <img class='thumb-img' src="{{ listing.photo_2.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                    <!-- Photo 3 -->
+                    {% if listing.photo_3 %}
+                        <div class="thumb-img-container">
+                            <a href="{{ listing.photo_3.url }}" data-lightbox='house-img'>
+                                <img class='thumb-img' src="{{ listing.photo_3.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                    <!-- Photo 4 -->
+                    {% if listing.photo_4 %}
+                        <div class="thumb-img-container">
+                            <a href="{{ listing.photo_4.url }}" data-lightbox='house-img'>
+                                <img class='thumb-img' src="{{ listing.photo_4.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                    <!-- Photo 5 -->
+                    {% if listing.photo_5 %}
+                        <div class="thumb-img-container">
+                            <a href="{{ listing.photo_5.url }}" data-lightbox='house-img'>
+                                <img class='thumb-img' src="{{ listing.photo_5.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                    <!-- Photo 6 -->
+                    {% if listing.photo_6 %}
+                        <div class="thumb-img-container">
+                            <a href="{{ listing.photo_6.url }}" data-lightbox='house-img'>
+                                <img class='thumb-img' src="{{ listing.photo_6.url }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- Right Container -->
+            <div class="col-12 col-md-5" id='right-container'>
+                <div class="row">
+                    <!-- Make an Enquiry Button -->
+                    <a class="btn highlight-bg-color" id="enquiry-btn">Make an Enquiry</a>
+                </div>
+                <!-- Map -->
+                <div id="mapid"></div>
+                <input type="hidden" id='geolocation' value="{{ listing.latitude }}, {{ listing.longitute }}">
+                <!-- Listing Information -->
+                <div id="content">
+                    <p class='primary-color'>Bedrooms: <span>{{ listing.bedrooms }}</span></p>
+                    <p class='primary-color'>Bathrooms: <span>{{ listing.bathrooms }}</span></p>
+                    <p class="primary-color">Garages: <span>{{ listing.garage }}</span></p>
+                </div>
+            </div>
+        </div>
+        <!-- Listing Description -->
+        <div class="row" id='listing-description'>
+            <p id='description-heading' class='primary-color'>Description<span>:</span></p>
+            <p class='content'>{{ listing.description }}</p>
+        </div>
+    </div>
+</section>
+
+<!-- Enquiry Form -->
+<section id="enquiry-form">
+    <div class="form hidden">
+        <h2 class='primary-color'>Enquiry Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first-name">First Name</label><br>
+                <input type="text" class='form-control' name="first-name" id='first-name' placeholder="First Name" value='{{ user.first_name }}' required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label><br>
+                <input type="text" class='form-control' name='last-name' id='last-name' placeholder="Last Name" value='{{ user.last_name }}'required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label><br>
+                <input type="text" class='form-control' name="phone" id="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label><br>
+                <input type="email" class='form-control' name="email" id="email" placeholder="Email Address" value='{{ user.email }}' aria-describedby="emailHelp">
+                <small id='emailHelp'>We will never share your email adress with anyone else</small>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class='form-control' name="message" id="message1"></textarea>
+            </div>
+            <input type="hidden" name='search-values' id='search-values'>
+            <div id="button-container">
+                <button type="submit" id='enquiry-form-submit' class="btn highlight-bg-color">Send Enquiry</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block footer %}
+    <script src='{% static "js/lightbox.js" %}'></script>
+    <script src="{% static 'listings/js/listing.js' %}"></script>
+{% endblock %}

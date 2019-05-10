@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'listings/css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'listings/css/search-queries.css' %}">
+{% endblock %}
+{% block title %} | {{ listing.title }} {% endblock %}
+    
+{% block content %}
+
+<!-- Search Bar -->
+{% include 'partials/_search-bar.html' %}
+
+<section id='listings'>
+    {% if listings %}
+        <div class="row" id='search-results'>
+            {% for listing in listings %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 listing">
+                    <div class="card card-img">
+                        <a href="{% url 'listing' listing.id %}">
+                            <img class="card-img" src="{{ listing.photo_main.url }}" alt="">
+                        </a>
+                        <div class="card-img-overlay" onclick="window.location=&quot;{% url 'listing' listing.id %}&quot;">
+                            <a class="btn price" id='listing-price'>£{{ listing.price | intcomma }}</a>
+                        </div>
+                    </div>
+                    <div class="card card-info">
+                        <!-- Listing Title -->
+                        <div class="row" id='listing-title'>
+                            <div class="col-1">
+                                <p class="card-text primary-color"><i class="fas fa-map-marker-alt"></i></p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text primary-color">{{ listing.title }}</p>
+                            </div>
+                        </div>
+                        <!-- No of Bedrooms -->
+                        <div class="row" id='listing-bedrooms'>
+                            <div class="col-1">
+                                <p class="card-text primary-color"><i class="fas fa-bed"></i></p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text primary-color">Bedrooms: {{ listing.bedrooms }}</p>
+                            </div>
+                        </div>
+                        <!-- No of Bathrooms -->
+                        <div class="row" id='listing-bathrooms'>
+                            <div class="col-1">
+                                <p class="card-text primary-color"><i class="fas fa-bath"></i></p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text primary-color">Bathrooms: {{ listing.bathrooms }}</p>
+                            </div>
+                        </div>
+                        <!-- Listing Date -->
+                        <div class="row" id='listing-date'>
+                            <div class="col-1">
+                                <p class="card-text primary-color"><i class="fas fa-clock"></i></p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text primary-color">{{ listing.list_date | naturaltime }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="container">
+            <h5>No listings match your criteria</h5>
+        </div>
+    {% endif %}
+</section>
+
+<section id="pagination">
+    {% if listings.has_other_pages %}
+        <ul class="pagination justify-content-center">
+
+            <!-- Previous Page -->
+            {% if listings.has_previous %}
+                <li class='page-item'>
+                    <a href="?page={{ listings.previous_page_number }}" class="page-link">&laquo;</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                </li>
+            {% endif %}
+
+            <!-- Pages in Between -->
+            {% for i in listings.paginator.page_range %}
+                {% if listings.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link">{{i}}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a href="?page={{i}}" class="page-link">{{i}}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Next Page -->
+            {% if listings.has_next %}
+                <li class='page-item'>
+                    <a href="?page={{ listings.next_page_number }}" class="page-link">&raquo;</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">&raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</section>
+
+{% endblock %}
+
+{% block footer %}
+    <script src="{% static 'listings/js/search.js' %}"></script>
+{% endblock %}
