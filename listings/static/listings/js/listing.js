@@ -30,20 +30,20 @@ function search_bar_values() {
 
         // A hidden input will carry the search values over to the server side
         document.querySelector('#search-values').value = localStorage.getItem('search_bar_inputs')
-    }
-} else {
-    search_bar_inputs = {
-        'keywords': '',
-        'location': '',
-        'bedrooms_key': '',
-        'bedroom_index': '',
-        'bedrooms_value': '',
-        'price_key': '',
-        'price_index': '',
-        'price_value': ''
-    };
-
-    document.querySelector('#search-values').value = JSON.stringify(search_bar_inputs)
+    } else {
+        search_bar_inputs = {
+            'keywords': '',
+            'location': '',
+            'bedrooms_key': '',
+            'bedroom_index': '',
+            'bedrooms_value': '',
+            'price_key': '',
+            'price_index': '',
+            'price_value': ''
+        };
+    
+        document.querySelector('#search-values').value = JSON.stringify(search_bar_inputs)
+    } 
 }
 
 function enquiry_form_height() {
