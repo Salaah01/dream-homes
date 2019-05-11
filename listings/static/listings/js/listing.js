@@ -20,15 +20,30 @@ function search_bar_values() {
     
     var search_bar = document.querySelector('#search-bar');
 
-    search_bar_inputs = JSON.parse(localStorage.getItem('search_bar_inputs'));
+    if (localStorage.getItem('search_bar_inputs')) {
+        search_bar_inputs = JSON.parse(localStorage.getItem('search_bar_inputs'));
 
-    search_bar.querySelector('#keywords').value = search_bar_inputs['keywords'];
-    search_bar.querySelector('#location').value = search_bar_inputs['location'];
-    search_bar.querySelector('#bedrooms').selectedIndex = search_bar_inputs['bedroom_index'];
-    search_bar.querySelector('#price').selectedIndex = search_bar_inputs['price_index'];
+        search_bar.querySelector('#keywords').value = search_bar_inputs['keywords'];
+        search_bar.querySelector('#location').value = search_bar_inputs['location'];
+        search_bar.querySelector('#bedrooms').selectedIndex = search_bar_inputs['bedroom_index'];
+        search_bar.querySelector('#price').selectedIndex = search_bar_inputs['price_index'];
 
-    // A hidden input will carry the search values over to the server side
-    document.querySelector('#search-values').value = localStorage.getItem('search_bar_inputs')
+        // A hidden input will carry the search values over to the server side
+        document.querySelector('#search-values').value = localStorage.getItem('search_bar_inputs')
+    }
+} else {
+    search_bar_inputs = {
+        'keywords': '',
+        'location': '',
+        'bedrooms_key': '',
+        'bedroom_index': '',
+        'bedrooms_value': '',
+        'price_key': '',
+        'price_index': '',
+        'price_value': ''
+    };
+
+    document.querySelector('#search-values').value = JSON.stringify(search_bar_inputs)
 }
 
 function enquiry_form_height() {
