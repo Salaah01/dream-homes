@@ -1,10 +1,10 @@
 var enquiry_form = document.getElementsByClassName('form')[0];
 var main_doc = document.getElementsByClassName('listing')[0];
 
-// window.onload = function() {
-//     search_bar_values()
-//     enquiry_form_height()
-// }
+window.onload = function() {
+    enquiry_form_height()
+    search_bar_values()
+}
 
 window.addEventListener('load', (event) => {
     search_bar_values()
