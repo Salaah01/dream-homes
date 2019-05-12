@@ -162,7 +162,7 @@
     }
 
     #enquiry-form {
-        width: 65%;
+        width: 80%;
     }
 
 }
@@ -176,6 +176,10 @@
 
     .enquiry-form h2 {
         font-size: 1.75rem;
+    }
+
+    #enquiry-form {
+        width: 95%;
     }
 
 }

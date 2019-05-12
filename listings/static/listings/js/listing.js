@@ -57,17 +57,28 @@ function enquiry_form_height() {
     }
 }
 
-
-
 // Detect all clicks on the document
 document.addEventListener('click', function(event) {
     // If user presses the enquiry button
+    
     if (event.target.id == 'enquiry-btn') {
+        // If the user presses "Make and Enquiry" then open then enquiry form and darken the background.
         enquiry_form.classList.remove('hidden');
         main_doc.classList.add('darken');
+
+    } else if (event.target.id == 'enquiry-form-cancel') {
+        // If the user presses cancel, clear the message, close the form and remove darkening from the background.
+        document.querySelector('#enquiry-form #message1').value = '';
+        enquiry_form.classList.add('hidden');
+        main_doc.classList.remove('darken');
+
     } else if (event.target.closest('#enquiry-form') || event.target.id == 'enquiry-form') {
+        // If the user presses somewhere on the form, do nothing.
         return
+
     } else {
+        // If the user clicks anywhere else, clear the messages, hide the form and remove the background darkening.
+        document.querySelector('#enquiry-form #message1').value = '';
         enquiry_form.classList.add('hidden');
         main_doc.classList.remove('darken');
     }

@@ -1,0 +1,29 @@
+{
+    "listing": {
+        "title": "Cambridge St, Blackburn, BB6",
+        "address": "2 Cambridge Street",
+        "city": "Blackburn",
+        "Postcode": "BB6 7BU",
+        "longitude": -2.401148,
+        "latitude": 53.78429,
+        "description": "lorem ipusm test",
+        "price": 650000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "garage": 1
+    },
+    "listing": {
+        "title": "Mancroft Road, Luton, LU1",
+        "address": "1 Mancroft Road",
+        "city": "Luton",
+        "Postcode": "LU1 4DR",
+        "longitude": -0.45283,
+        "latitude": 51.854469,
+        "description": "lorem ipusm test",
+        "price": 860000,
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "garage": 1
+    }
+    
+}
