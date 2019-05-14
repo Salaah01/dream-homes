@@ -1,12 +1,39 @@
+
 import os
-import json
+from . import uk_all_cities
+import pandas as pd
+from pandas import ExcelWriter
+from pandas import ExcelFile
 
-fp = os.path.join(os.path.dirname(os.path.abspath(__file__)),'new_listings.json')
-
-with open(fp) as json_file:
-    print (json_file)
-    listings = json.load(json_file,)
-    for listing in listings:
-        print (listing[0])
+import sys
+sys.path
+print(sys.path)
+# from listings import models
 
 
+currDir = os.path.dirname(__file__)
+listingsFP = os.path.join(currDir, 'listings data.xlsx')
+
+startRange = 5
+endRange = 20
+
+listings = []
+listingsData = pd.read_excel(listingsFP, sheet_name='Sheet1')
+
+for l in range(startRange, endRange):
+    listings.append(
+        {
+            'agent': listingsData['agent'][l],
+            'title': listingsData['title'][l],
+            'address': listingsData['address'][l],
+            'city': listingsData['city'][l],
+            'postcode': listingsData['postcode'][l],
+            'longitute': listingsData['longitude'][l],
+            'latitude': listingsData['latitude'][l],
+            'description': listingsData['description'][l],
+            'price': listingsData['price'][l],
+            'bedrooms': listingsData['bedrooms'][l],
+            'bathrooms': listingsData['bathrooms'][l],
+            'garage': listingsData['garage'][l],
+        }
+    )
