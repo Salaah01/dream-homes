@@ -73,6 +73,12 @@ a.btn.highlight-bg-color {
     color: #fff;
 }
 
+/* Navbar */
+
+#logo {
+    height: 24px;
+}
+
 /* Search Bar Partial */
 
 #search-bar .row {
