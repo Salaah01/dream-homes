@@ -41,7 +41,7 @@
 
                 <!-- Logout -->
                 <li class="nav-item">
-                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">Logout</a>
+                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     <form action="{% url 'logout' %}" method="POST" id='logout'>
                         {% csrf_token %}
                         <input type="hidden">
@@ -65,7 +65,7 @@
                 {% else %}
                     <li class="nav-item">
                 {% endif %}
-                        <a class='nav-link' href="{% url 'login' %}">Login</a>
+                        <a class='nav-link' href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
                     </li>
             {% endif %}
                 

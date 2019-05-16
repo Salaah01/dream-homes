@@ -79,6 +79,10 @@ a.btn.highlight-bg-color {
     height: 24px;
 }
 
+nav i {
+    font-size: 1em;
+}
+
 /* Search Bar Partial */
 
 #search-bar .row {

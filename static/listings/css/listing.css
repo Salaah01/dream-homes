@@ -139,8 +139,9 @@ h4 {
     margin-bottom: 26px;
 }
 
-#enquiry-form-submit {
-    width: 80%;
+#enquiry-form-submit,
+#enquiry-form-cancel {
+    width: 45%;
     margin: 0 auto;
 }
 
