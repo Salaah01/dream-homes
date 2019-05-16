@@ -47,15 +47,17 @@ class SearchListings():
     def price(self):
         if 'price' in self.request:
             price = self.request['price']
-            if price and price != 'max':
-                self.queryset_list = self.queryset_list.filter(price__lte=price)
-            elif price == 'max':
-                # Calculate the Max Value
-                max_price = sorted(price_choices.keys())
-                max_price.remove('max')
-                max_price_val = max(list(map(int, max_price)))
-                self.queryset_list = self.queryset_list.filter(price__gte=max_price_val)
-                print(max_price_val)
+            if price:
+                if price == '0':
+                    pass
+                elif price != 'max':
+                    self.queryset_list = self.queryset_list.filter(price__lte=price)
+                elif price == 'max':
+                    # Calculate the Max Value
+                    max_price = sorted(price_choices.keys())
+                    max_price.remove('max')
+                    max_price_val = max(list(map(int, max_price)))
+                    self.queryset_list = self.queryset_list.filter(price__gte=max_price_val)
         return self.queryset_list
 
     def location(self):
