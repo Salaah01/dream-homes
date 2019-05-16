@@ -71,6 +71,5 @@ def search(request):
         'listings': paged_listings,
         'values': request.GET,
     }
-
-    print (queryset_list)
+    
     return render(request, 'listings/search.html', context)
