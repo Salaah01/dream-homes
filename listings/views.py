@@ -57,7 +57,6 @@ def listing(request, listing_id):
 
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date').filter(is_published=True)
-
     queryset_list = SearchListings(request.GET, queryset_list).searchFields()
 
     # Pagination
@@ -71,5 +70,5 @@ def search(request):
         'listings': paged_listings,
         'values': request.GET,
     }
-    
+
     return render(request, 'listings/search.html', context)
