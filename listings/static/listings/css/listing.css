@@ -41,14 +41,19 @@ h4 {
 }
 
 .thumbs {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .thumb-img {
     height: 80px;
     width: 100px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     float: left;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -110,7 +115,9 @@ h4 {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     width: 30%;
 }
 
@@ -131,8 +138,11 @@ h4 {
 
 #button-container {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
 }
 
 #enquiry-form textarea {

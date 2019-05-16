@@ -42,7 +42,10 @@ h2 {
 }
 
 .card img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
     transition: 0.3s ease;
 }
 
@@ -51,7 +54,8 @@ h2 {
     font-style: normal;
     font-weight: 600;
     font-size: 1.3em;
-    box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.473)
+    -webkit-box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.473);
+            box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.473)
 }
 
 .card:first-of-type {
@@ -65,8 +69,11 @@ h2 {
 }
 
 .card:first-of-type:hover img {
-    transform: scale(1.1);
-    filter: brightness(120%);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
 }
 
 .card:last-of-type {

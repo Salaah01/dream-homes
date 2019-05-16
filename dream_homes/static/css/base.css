@@ -10,7 +10,8 @@ body {
 }
 
 .darken {
-    filter: brightness(0.6)
+    -webkit-filter: brightness(0.6);
+            filter: brightness(0.6)
 }
 
 .navbar{
@@ -22,7 +23,11 @@ body {
 .listing {
     min-height: 100%;
     background-color: #fff;
+    -webkit-transition: -webkit-filter 0.3s ease;
+    transition: -webkit-filter 0.3s ease;
+    -o-transition: filter 0.3s ease;
     transition: filter 0.3s ease;
+    transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 section:first-of-type {
@@ -86,12 +91,16 @@ nav i {
 /* Search Bar Partial */
 
 #search-bar .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
-    justify-content: space-around;
-    align-self: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-item-align: center;
+        align-self: center;
     width: 95%;
 }
 
