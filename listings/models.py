@@ -12,7 +12,7 @@ class Listing(models.Model):
     address = models.CharField(max_length = 200)
     city = models.CharField(max_length = 30)
     postcode = models.CharField(max_length = 10)
-    longitute = models.FloatField()
+    longitude = models.FloatField()
     latitude = models.FloatField()
     description = models.TextField(blank=True)
     price = models.IntegerField()

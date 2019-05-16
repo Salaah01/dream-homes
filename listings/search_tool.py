@@ -1,5 +1,11 @@
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dream_homes.settings")
 import re
 from .uk_all_cities import all_cities, cities_by_country
+from .choices import price_choices
 
 class SearchListings():
 
@@ -32,6 +38,8 @@ class SearchListings():
             if bedrooms:
                 if bedrooms == "5+":
                     self.queryset_list = self.queryset_list.filter(bedrooms__gte=6)
+                elif bedrooms == "0":
+                    pass
                 else:
                     self.queryset_list = self.queryset_list.filter(bedrooms__iexact=bedrooms)
         return self.queryset_list
@@ -39,8 +47,17 @@ class SearchListings():
     def price(self):
         if 'price' in self.request:
             price = self.request['price']
-            if price and price != 'max':
-                self.queryset_list = self.queryset_list.filter(price__lte=price)
+            if price:
+                if price == '0':
+                    pass
+                elif price != 'max':
+                    self.queryset_list = self.queryset_list.filter(price__lte=price)
+                elif price == 'max':
+                    # Calculate the Max Value
+                    max_price = sorted(price_choices.keys())
+                    max_price.remove('max')
+                    max_price_val = max(list(map(int, max_price)))
+                    self.queryset_list = self.queryset_list.filter(price__gte=max_price_val)
         return self.queryset_list
 
     def location(self):
@@ -62,10 +79,9 @@ class SearchListings():
                     
                     # If user enters UK or similar
                     if location_field.lower() in ['united kingdom', 'uk', 'gb']:
-                        print(True)
                         pass
                     
-                    # Check if user enters England/ Wales/ Scotland/ Northern Ireland/ Ireland
+                    # Check if user enters England/ Wales/ Scotland/ Northern Ireland/ Ireland-
                     elif location_field.lower() in ['england', 'wales', 'scotland', 'northern ireland', 'ireland']:
                         cities = self.get_city_list(location_field.lower())
                         self.queryset_list = self.queryset_list.filter(city__in=cities)

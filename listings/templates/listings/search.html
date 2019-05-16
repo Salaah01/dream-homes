@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'listings/css/search.css' %}">
     <link rel="stylesheet" href="{% static 'listings/css/search-queries.css' %}">
 {% endblock %}
-{% block title %} | {{ listing.title }} {% endblock %}
+{% block title %} | Search Listings{{ listing.title }} {% endblock %}
     
 {% block content %}
 
@@ -80,7 +80,7 @@
             <!-- Previous Page -->
             {% if listings.has_previous %}
                 <li class='page-item'>
-                    <a href="?page={{ listings.previous_page_number }}" class="page-link">&laquo;</a>
+                    <a href="?page={{ listings.previous_page_number }}{% if request.GET.keywords %}&keywords={{request.GET.keywords}}{% endif %}{% if request.GET.location %}&location={{request.GET.location}}{% endif %}{% if request.GET.bedrooms %}&bedrooms={{request.GET.bedrooms}}{% endif %}{% if request.GET.price %}&price={{request.GET.price}}{% endif %}" class="page-link">&laquo;</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
@@ -96,7 +96,7 @@
                     </li>
                 {% else %}
                     <li class="page-item">
-                        <a href="?page={{i}}" class="page-link">{{i}}</a>
+                        <a href="?page={{i}}{% if request.GET.keywords %}&keywords={{request.GET.keywords}}{% endif %}{% if request.GET.location %}&location={{request.GET.location}}{% endif %}{% if request.GET.bedrooms %}&bedrooms={{request.GET.bedrooms}}{% endif %}{% if request.GET.price %}&price={{request.GET.price}}{% endif %}" class="page-link">{{i}}</a>
                     </li>
                 {% endif %}
             {% endfor %}
@@ -104,7 +104,7 @@
             <!-- Next Page -->
             {% if listings.has_next %}
                 <li class='page-item'>
-                    <a href="?page={{ listings.next_page_number }}" class="page-link">&raquo;</a>
+                    <a href="?page={{ listings.next_page_number }}{% if request.GET.keywords %}&keywords={{request.GET.keywords}}{% endif %}{% if request.GET.location %}&location={{request.GET.location}}{% endif %}{% if request.GET.bedrooms %}&bedrooms={{request.GET.bedrooms}}{% endif %}{% if request.GET.price %}&price={{request.GET.price}}{% endif %}" class="page-link">&raquo;</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
