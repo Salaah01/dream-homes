@@ -79,6 +79,13 @@ a.btn.highlight-bg-color {
     height: 24px;
 }
 
+<<<<<<< HEAD
+=======
+nav i {
+    font-size: 1em;
+}
+
+>>>>>>> 46571594540871ba4bfe44ba71016906e48576b6
 /* Search Bar Partial */
 
 #search-bar .row {

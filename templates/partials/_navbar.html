@@ -14,17 +14,13 @@
             {% else %}
                 <li class="nav-item">
             {% endif %}
-                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
 
-          <!-- About -->
-          {% if 'about' in request.path %}
-                <li class="nav-item active">
-            {% else %}
-                <li class="nav-item">
-            {% endif %}
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>
+          <!-- GitHub -->
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/Salaah01/dream-homes" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </li>
 
         </ul>
         <ul class='navbar-nav mr-4'>
@@ -36,12 +32,12 @@
                 {% else %}
                     <li class='nav-item'>
                 {% endif %}
-                        <a class="nav-link" href="{% url 'dashboard' %}">Welcome {{ user.first_name }} (Dashboard)</a>
+                        <a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-clipboard-list"></i> Welcome {{ user.first_name }} (Dashboard)</a>
                     </li>
 
                 <!-- Logout -->
                 <li class="nav-item">
-                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">Logout</a>
+                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     <form action="{% url 'logout' %}" method="POST" id='logout'>
                         {% csrf_token %}
                         <input type="hidden">
@@ -56,7 +52,7 @@
                 {% else %}
                     <li class="nav-item">
                 {% endif %}
-                        <a class='nav-link' href="{% url 'register' %}">Register</a>
+                        <a class='nav-link' href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Register</a>
                     </li>
 
                 <!-- Login -->
@@ -65,7 +61,7 @@
                 {% else %}
                     <li class="nav-item">
                 {% endif %}
-                        <a class='nav-link' href="{% url 'login' %}">Login</a>
+                        <a class='nav-link' href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
                     </li>
             {% endif %}
                 

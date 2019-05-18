@@ -16,7 +16,8 @@
 
 img {
     max-height: 300px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .card-info {

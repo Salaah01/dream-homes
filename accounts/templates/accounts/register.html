@@ -9,9 +9,15 @@
 
 {% block content %} 
 
+<!-- Messages -->
+<section class="message-alert">
+    <div class="row">
+        {% include 'partials/_messages.html' %}
+    </div>
+</section>
+
 <section id="login">
-    <!-- Messages -->
-    {% include 'partials/_messages.html' %}
+    <!-- Register -->
     <div id="login-container">
         <div id="heading">
             <h1 class="display-4">Register</h1>
