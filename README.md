@@ -1,13 +1,16 @@
-## Dream Homes
+## [Dream Homes](http://178.62.34.200)
 ### Description
-Dream Homes is real-estate website created using the Django framework. The webiste utalised user rights and user authentication which will display and allow certain functionabilty. More generally, the website will allow a user to search and view listings. If the user is interested in a property, they will be able to make an enquiry using a form. Upon submission of the form, the Estate Agent who is responsible for that property will receive an email notification. Users are able to also register and login to view their enquries.
+Dream Homes is real-estate website created using the Django framework. It allows users to search for different listings using the search tool provided.
+
+Users are then able to view information about their listings including viewing a map of the listing location.
+
+Users will then be able to make an enquiry for a listing. Users who have registered will have access to a dashboard where they will be able to communicate with the agent who is responsible for that listing.
 
 ### Technologies Used
-#### Front End
-* HTML
-* CSS
-* JavaScript
-#### Back End
-* Python
-#### Frameworks
-* Django
+Languages | Database | Frameworks
+----------|----------|------------
+HTML | PostgreSQL | Django
+CSS | | Selenium (Testing)
+JavaScript |
+Python |
+
