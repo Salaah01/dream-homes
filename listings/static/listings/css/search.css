@@ -15,7 +15,6 @@
 }
 
 img {
-    max-height: 300px;
     -o-object-fit: cover;
        object-fit: cover;
 }
