@@ -99,3 +99,7 @@ p.card-text {
 .card-img-overlay {
     z-index: 0;
 }
+
+.card img {
+    height: 230px;
+}

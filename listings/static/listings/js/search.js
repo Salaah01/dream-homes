@@ -1,11 +1,11 @@
 $(document).ready(function(){
-    listing_img_height()
     cards_height()
+    listing_img_height()
 });
 
 $(window).on('resize', function() {
-    listing_img_height()
     cards_height()
+    listing_img_height()
 })
 
 function listing_img_height() {

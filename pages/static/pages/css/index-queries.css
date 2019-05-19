@@ -1,3 +1,11 @@
+@media only screen and (max-width: 1200px) {
+
+    #top-container {
+        height: 590px;
+    }
+
+}
+
 @media only screen and (max-width: 990px) {
     
     a.btn.price {
@@ -19,9 +27,17 @@
     #listing-title {
         margin-top: 15px;
     }
+
+    .card img {
+        height: 160px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
+
+    #top-container {
+        height: 730px;
+    }
 
     #top-container .form-group:first-of-type {
         margin-bottom: 0;
@@ -42,6 +58,10 @@
 }
 
 @media only screen and (max-width: 575px) {
+    
+    #top-container {
+        height: 670px;
+    }
 
     .price-text {
         font-size: 1em;
@@ -60,6 +80,18 @@
         padding: 30px;
     }
 
+    .card img {
+        height: 290px;
+    }
+
+}
+
+@media only screen and (max-width: 526px) {
+
+    #top-container {
+        height: 700px;
+    }
+
 }
 
 @media only screen and (max-width: 414px) {
@@ -68,9 +100,33 @@
         margin-bottom: 25px;
     }
 
+    .card img {
+        height: 230px;
+    }
+
+}
+
+@media only screen and (max-width: 408px) {
+
+    #top-container {
+        height: 770px;
+    }
+
+}
+
+@media only screen and (max-width: 388px) {
+
+    #top-container {
+        height: 800px;
+    }
+
 }
 
 @media only screen and (max-width: 375px) {
+
+    #top-container {
+        height: 735px;
+    }
 
     h1.display-4 {
         font-size: 3rem;
@@ -82,6 +138,10 @@
 }
 
 @media only screen and (max-width: 360px) {
+
+    #top-container {
+        height: 670px;
+    }
 
     h1.display-4 {
         font-size: 2.5rem;
@@ -95,6 +155,22 @@
 
     small {
         font-size: 75%;
+    }
+
+}
+
+@media only screen and (max-width: 350px) {
+
+    #top-container {
+        height: 95px;
+    }
+
+}
+
+@media only screen and (max-width: 311px) {
+
+    #top-container {
+        height: 740px;
     }
 
 }
