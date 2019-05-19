@@ -15,7 +15,7 @@
 #search-box {
     text-align: center;
     color: #fff;
-    background-color: #505050b7;
+    background-color: rgba(50,50,50,0.65);
     margin-top: 30px;
 }
 
