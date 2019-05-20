@@ -1,12 +1,7 @@
 var enquiry_form = document.getElementsByClassName('form')[0];
 var main_doc = document.getElementsByClassName('listing')[0];
 
-window.onload = function() {
-    enquiry_form_height()
-    search_bar_values()
-}
-
-window.addEventListener('load', (event) => {
+$(document).ready(function(){
     search_bar_values()
     enquiry_form_height()
 });
@@ -83,6 +78,15 @@ document.addEventListener('click', function(event) {
         main_doc.classList.remove('darken');
     }
 });
+
+// Close the Enquiry Form if the user prsses Escape Key
+document.addEventListener('keydown', function(event) {
+    if (event.keyCode == 27) {
+        document.querySelector('#enquiry-form #message1').value = '';
+        enquiry_form.classList.add('hidden');
+        main_doc.classList.remove('darken');
+    }
+})
 
 // Map
 var geolocation = document.querySelector('#geolocation').value.split(", ");

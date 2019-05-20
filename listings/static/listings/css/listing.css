@@ -89,7 +89,8 @@ h4 {
 }
 
 /* Map */
-#mapid { 
+#mapid {
+    z-index: 1;
     height: 280px;
     margin-top: 20px;
 }
@@ -112,6 +113,7 @@ h4 {
 /* Enquiry Form */
 
 #enquiry-form {
+    z-index: 99;
     position: fixed;
     top: 50%;
     left: 50%;
