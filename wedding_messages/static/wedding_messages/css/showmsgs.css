@@ -1,0 +1,10 @@
+section#message-contents {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content .message {
+    background-color: lightsalmon;
+    border-radius: 5px;
+    margin: 3px;
+}

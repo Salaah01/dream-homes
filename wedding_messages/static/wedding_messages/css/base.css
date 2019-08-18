@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    width: 100vw;
+    height: 100vh;
+    background: url(../img/bg.jpg) rgba(255, 242, 245, 0.5);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: color-burn;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive, sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    background: -webkit-linear-gradient(rgb(240, 191, 33), rgb(179, 141, 20));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive, sans-serif;
+}
+
+section {
+    width: 80%;
+}
+
+section:first-of-type {
+    margin-left: auto;
+    margin-right: auto;
+
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+section#title-section {
+    padding-top: 65px;
+}
