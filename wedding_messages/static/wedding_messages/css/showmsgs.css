@@ -1,10 +1,40 @@
 section#message-contents {
     margin-left: auto;
     margin-right: auto;
+    text-align: left
 }
 
-#content .message {
+/* #content .message {
     background-color: lightsalmon;
     border-radius: 5px;
     margin: 3px;
+} */
+
+.message {
+    margin-bottom: 15px;
+    /* width: 90%; */
+    /* background: rgba(255, 255, 255, 0.3); */
+}
+
+p.from-names,
+p.message-content {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+p.from-names {
+    font-style: italic;
+}
+
+p.from-names::after {
+    content: ' wrote:'
+}
+
+p.message-content {
+    background-color: rgb(2,205,73);
+    color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
