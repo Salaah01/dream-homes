@@ -44,10 +44,9 @@ p.message-content {
     border-radius: 5px;
 }
 
-@media only screen (max-width: 550px) {
+@media only screen and (max-width: 550px) {
     
     h1 {
         font-size: 50px;
     }
-
 }
