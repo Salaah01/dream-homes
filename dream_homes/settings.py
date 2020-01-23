@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'accounts.apps.AccountsConfig',
     'enquiries.apps.EnquiriesConfig',
-    'wedding_messages.apps.WeddingMessagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
