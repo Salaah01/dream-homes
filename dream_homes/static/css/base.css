@@ -1,37 +1,37 @@
 /* Body BG */
 
 body {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 /* Pop Ups */
 .hidden {
-    display: none;
+  display: none;
 }
 
 .darken {
-    -webkit-filter: brightness(0.6);
-            filter: brightness(0.6)
+  -webkit-filter: brightness(0.6);
+  filter: brightness(0.6);
 }
 
-.navbar{
-    position: fixed;
-    width: 100%;
-    z-index: 999;
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 }
 
 .listing {
-    min-height: 100%;
-    background-color: #fff;
-    -webkit-transition: -webkit-filter 0.3s ease;
-    transition: -webkit-filter 0.3s ease;
-    -o-transition: filter 0.3s ease;
-    transition: filter 0.3s ease;
-    transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+  min-height: 100%;
+  background-color: #fff;
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
+  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 section:first-of-type {
-    padding-top: 60px;
+  padding-top: 60px;
 }
 
 /* Colours */
@@ -39,9 +39,9 @@ section:first-of-type {
 .btn,
 a.btn,
 a.btn:visited {
-    background-color: #24afce;
-    color: white;
-    border: 0;
+  background-color: #24afce;
+  color: white;
+  border: 0;
 }
 
 .btn:hover,
@@ -49,89 +49,66 @@ a.btn:visited {
 .btn:active,
 a.btn:hover,
 a.btn:active {
-    background-color: #1e95af;
-    color: white;
-    border: 0;
+  background-color: #1e95af;
+  color: white;
+  border: 0;
 }
 
 .primary-color {
-    color: #24afce;
+  color: #24afce;
 }
 
 .primary-bg-color {
-    background: #24afce;
-    color: #fff;
+  background: #24afce;
+  color: #fff;
 }
 
 .highlight-color {
-    color: #FF8985;
+  color: #ff8985;
 }
 
 .highlight-bg-color,
 a.btn.highlight-bg-color {
-    background-color: #FF8985;
-    color: #fff;
+  background-color: #ff8985;
+  color: #fff;
 }
 
 .btn.highlight-bg-color:hover {
-    background-color: rgb(207, 111, 107);
-    color: #fff;
+  background-color: rgb(207, 111, 107);
+  color: #fff;
 }
 
 /* Navbar */
 nav {
-    top: 0;
+  top: 0;
 }
 #logo {
-    height: 24px;
+  height: 24px;
 }
 
 nav i {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 /* Messages */
 .message-alert {
-    position: absolute;
-    width: 100%;
-    margin-top: 10px;
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
 }
 /* Search Bar Partial */
 
-/* #search-bar .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -ms-flex-item-align: center;
-        align-self: center;
-    width: 95%;
-}
-
-#search-bar .search-element {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#search-bar .btn {
-    border: 1px solid transparent;
-} */
-
 #search-bar {
-    margin-top: 65px;
-    padding: 0 40px;
+  margin-top: 65px;
+  padding: 0 40px;
 }
 
 .search-bar-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr) max-content;
-    gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) max-content;
+  gap: 10px;
 }
 
 .search-element {
-    display: inline;
+  display: inline;
 }
