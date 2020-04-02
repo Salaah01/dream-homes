@@ -1,222 +1,200 @@
 @media only screen and (max-width: 1440px) {
-
-    #enquiry-form {
-        width: 35%;
-    }
-
+  #enquiry-form {
+    width: 35%;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
+  .thumb-img {
+    width: 90px;
+    height: 70px;
+  }
 
-    .thumb-img {
-        width: 90px;
-        height: 70px;
-    }
-
-    #enquiry-form {
-        width: 40%;
-    }
-
+  #enquiry-form {
+    width: 40%;
+  }
 }
 
 @media only screen and (max-width: 1045px) {
-
-    #enquiry-form {
-        width: 45%;
-    }
-
+  #enquiry-form {
+    width: 45%;
+  }
 }
 
 @media only screen and (max-width: 991px) {
+  #listing-header {
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
 
-    #listing-header {
-        margin-top: 20px;
-        margin-bottom: 5px;
-    }
+  #listing-header h4 {
+    font-size: 1.3em;
+    margin-bottom: 2px;
+  }
 
-    #listing-header h4 {
-        font-size: 1.3em;
-        margin-bottom: 2px;
-    }
+  #listing-address {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
 
-    #listing-address {
-        font-size: 15px;
-        letter-spacing: 1px;
-    }
+  #right-container {
+    padding-top: 72px;
+    padding-left: 30px;
+  }
 
-    #right-container {
-        padding-top: 72px;
-        padding-left: 30px;
-    }
-    
-    .thumb-img {
-        width: 60px;
-        height: 50px;
-    }
+  .thumb-img {
+    width: 60px;
+    height: 50px;
+  }
 
-    #mapid {
-        height: 260px;
-        margin-top: 10px;
-    }
+  #mapid {
+    height: 260px;
+    margin-top: 10px;
+  }
 
-    #content {
-        margin-top: 15px;
-    }
+  #content {
+    margin-top: 15px;
+  }
 
-    #content p {
-        font-size: 0.95em;
-        margin-bottom: 1px;
-        text-align: center;
-    }
+  #content p {
+    font-size: 0.95em;
+    margin-bottom: 1px;
+    text-align: center;
+  }
 
-    #listing-description p {
-        font-size: 0.95em;
-    }
+  #listing-description p {
+    font-size: 0.95em;
+  }
 
-    #description-heading {
-        margin-bottom: 5px;
-    }
-
+  #description-heading {
+    margin-bottom: 5px;
+  }
 }
 
 @media only screen and (max-width: 900px) {
-
-    #enquiry-form {
-        width: 50%;
-    }
-
+  #enquiry-form {
+    width: 50%;
+  }
 }
 
 @media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 30px;
+  }
 
-    .container {
-        padding: 0 30px;
-    }
+  #listing-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
 
-    #listing-header {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
+  #listing-header h4 {
+    font-size: 1.5em;
+    margin-bottom: 2px;
+  }
 
-    #listing-header h4 {
-        font-size: 1.5em;
-        margin-bottom: 2px;
-    }
+  #listing-address {
+    letter-spacing: 1px;
+  }
 
-    #listing-address {
-        letter-spacing: 1px;
-    }
+  #right-container {
+    padding-top: 30px;
+    padding-left: 0;
+  }
 
-    #right-container {
-        padding-top: 30px;
-        padding-left: 0;
-    }
+  #mapid {
+    height: 350px;
+    margin-top: 20px;
+  }
 
-    #mapid {
-        height: 350px;
-        margin-top: 20px;
-    }
+  .thumb-img {
+    width: 80px;
+    height: 65px;
+  }
 
-    .thumb-img {
-        width: 80px;
-        height: 65px;
-    }
+  #content p {
+    margin-bottom: 2px;
+  }
 
-    #content p {
-        margin-bottom: 2px;
-    }
+  p#description-heading {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    p#description-heading {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  #listing-description p span {
+    display: none;
+  }
 
-
-    #listing-description p span {
-        display: none;
-    }
-
-    #enquiry-form {
-        width: 55%;
-    }
-
+  #enquiry-form {
+    width: 55%;
+  }
 }
 
 @media only screen and (max-width: 655px) {
+  #enquiry-form {
+    width: 60%;
+  }
 
-    #enquiry-form {
-        width: 60%;
-    }
-
-    #enquiry-form small {
-        display: none;
-    }
-
+  #enquiry-form small {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 575px) {
+  #listing-title span {
+    display: none;
+  }
 
-    #listing-title span {
-        display: none;
-    }
-
-    #enquiry-form {
-        width: 80%;
-    }
-
-}
-
-@media only screen and (max-width: 400px) {
-    
-    .thumb-img {
-        height: 80px;
-        width: 100px;
-    }
-
-    .enquiry-form h2 {
-        font-size: 1.75rem;
-    }
-
-    #enquiry-form {
-        width: 95%;
-    }
-
-}
-
-@media only screen and (max-width: 375px) {
-
-    #listing-header h4 {
-        font-size: 1.14em;
-    }
-
-    #listing-address p {
-        font-size: 15px;
-        margin-top: 2px;
-    }
-
-    #listing-address {
-        font-size: 15px;
-    }
-
-    .thumb-img {
-        height: 56px;
-        width: 73px;
-    }
-
-    .enquiry-form h2 {
-        font-size: 1.5rem;
-    }
+  #enquiry-form {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-height: 512px) {
+  #enquiry-form .form-group {
+    margin-bottom: 0;
+  }
 
-    #enquiry-form .form-group {
-        margin-bottom: 0;
-    }
+  #enquiry-form label {
+    display: none;
+  }
+}
 
-    #enquiry-form label {
-        display: none;
-    }
+@media only screen and (max-width: 400px) {
+  .thumb-img {
+    height: 80px;
+    width: 100px;
+  }
 
+  .enquiry-form h2 {
+    font-size: 1.75rem;
+  }
+
+  #enquiry-form {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #listing-header h4 {
+    font-size: 1.14em;
+  }
+
+  #listing-address p {
+    font-size: 15px;
+    margin-top: 2px;
+  }
+
+  #listing-address {
+    font-size: 15px;
+  }
+
+  .thumb-img {
+    height: 56px;
+    width: 73px;
+  }
+
+  .enquiry-form h2 {
+    font-size: 1.5rem;
+  }
 }

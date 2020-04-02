@@ -1,60 +1,94 @@
 @media only screen and (max-width: 940px) {
-    
-    #search-bar small {
-        font-size: 70%;
-    }
+  #search-bar small {
+    font-size: 70%;
+  }
+}
 
+@media only screen and (max-width: 900px) {
+  #search-bar {
+    margin-top: 65px;
+    margin-right: 23px;
+  }
+  .search-bar-container {
+    grid-template-columns: repeat(10, 10%);
+    gap: 3px;
+  }
+
+  .search-element {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .search-element small {
+    margin-left: 1px;
+  }
+
+  #keyword-container {
+    grid-column: 1 / span 5;
+  }
+
+  #location-container {
+    grid-column: 6 / span 5;
+  }
+
+  #bedroom-container {
+    grid-column: 1 / span 4;
+  }
+
+  #price-container {
+    grid-column: 5 / span 4;
+  }
+
+  #submit-btn-container {
+    grid-column: 9 / span 2;
+    border: 1px solid #24afce;
+  }
 }
 
 @media only screen and (max-width: 830px) {
-    
-    #search-bar small {
-        font-size: 63%;
-    }
-
+  #search-bar small {
+    font-size: 63%;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-    
-    #search-bar small {
-        font-size: 80%;
-        margin-top: 0px;
-    }
+  #search-bar small {
+    font-size: 80%;
+    margin-top: 0px;
+  }
+}
 
-    #search-bar .search-element {
-        margin-bottom: 10px;
-    }
-
-    #search-bar .btn {
-        width: 100%;
-    }
-
+@media only screen and (max-width: 560px) {
+  #search-bar {
+    padding: 15px;
+  }
 }
 
 @media only screen and (max-width: 484px) {
+  .message-alert {
+    font-size: 0.95em;
+  }
 
-    .message-alert {
-        font-size: 0.95em;
-    }
-
-    #search-bar small {
-        font-size: 70%;
-    }
-
+  #search-bar small {
+    font-size: 70%;
+  }
 }
 
 @media only screen and (max-width: 426px) {
+  #search-bar {
+    margin-right: 0;
+  }
 
-    #search-bar small {
-        font-size: 65%;
-    }
+  #search-bar small {
+    font-size: 65%;
+  }
 
-}
+  .search-bar-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-@media only screen and (max-width: 375px) {
-
-    #search-bar .search-element#price-container {
-        padding-right: 0;
-    }
-
+  .search-element {
+    margin-bottom: 5px;
+  }
 }

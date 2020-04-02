@@ -1,7 +1,7 @@
 /* Body BG */
 
 body {
-    background-color: #f5f5f5;    
+    background-color: #f5f5f5;
 }
 
 /* Pop Ups */
@@ -60,7 +60,7 @@ a.btn:active {
 
 .primary-bg-color {
     background: #24afce;
-    color: #fff;    
+    color: #fff;
 }
 
 .highlight-color {
@@ -98,7 +98,7 @@ nav i {
 }
 /* Search Bar Partial */
 
-#search-bar .row {
+/* #search-bar .row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -119,4 +119,19 @@ nav i {
 
 #search-bar .btn {
     border: 1px solid transparent;
+} */
+
+#search-bar {
+    margin-top: 65px;
+    padding: 0 40px;
+}
+
+.search-bar-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) max-content;
+    gap: 10px;
+}
+
+.search-element {
+    display: inline;
 }

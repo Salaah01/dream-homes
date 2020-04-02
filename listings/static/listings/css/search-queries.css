@@ -23,6 +23,12 @@
 
 }
 
+@media only screen and (max-width: 600px) {
+    #listings {
+        margin-top: 15px;
+    }
+  }
+
 @media only screen and (max-width: 576px) {
 
     .listing:nth-of-type(2) {
