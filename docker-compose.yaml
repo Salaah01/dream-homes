@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   web: &web
-    build: ./web/.
+    image: public.ecr.aws/d0r4z6q1/dream-homes:latest
     restart: always
     depends_on:
       - postgres
