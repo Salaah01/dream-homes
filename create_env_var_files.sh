@@ -66,7 +66,7 @@ echo "DB_USER=${POSTGRES_USER}" >>$WEB_ENV_FILE
 echo "DB_PASSWORD=${POSTGRES_PASSWORD}" >>$WEB_ENV_FILE
 echo DB_PORT=5432 >>$WEB_ENV_FILE
 if [[ $MODE == 'prod' ]]; then
-  echo "ALLOWED_HOSTS=web|iamsalaah.com|www.iamsalaah.com" >>$WEB_ENV_FILE
+  echo "ALLOWED_HOSTS=web|iamsalaah.com|www.iamsalaah.com|dream-homes.iamsalaah.com|www.dream-homes.iamsalaah.com" >>$WEB_ENV_FILE
 fi
 
 echo -e "\033[92mEnvironment variables have been set for Dream Homes.\033[0m"
