@@ -12,7 +12,7 @@ services:
             bash -c "rm -rf static/
             && python manage.py migrate
             && python manage.py collectstatic --noinput
-            && gunicorn main_site.wsgi:application --bind 0.0.0.0:32769 --access-logfile - --error-logfile -"
+            && gunicorn dream_homes.wsgi:application --bind 0.0.0.0:32769 --access-logfile - --error-logfile -"
     ports:
       - 32769:32769
     
