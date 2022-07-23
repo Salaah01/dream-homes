@@ -6,15 +6,13 @@ services:
     depends_on:
       - postgres
     volumes:
-      - /var/www/dream_homes/static/:/static_files
+      - static_files:/static_files
     env_file: ./web/.web.env
     command: >
             bash -c "rm -rf static/
             && python manage.py migrate
             && python manage.py collectstatic --noinput
-            && gunicorn dream_homes.wsgi:application --bind 0.0.0.0:32769 --access-logfile - --error-logfile -"
-    ports:
-      - 32769:32769
+            && gunicorn dream_homes.wsgi:application --bind 0.0.0.0:8000 --access-logfile - --error-logfile -"
     
   postgres: &postgres
     image: postgres:14.4-alpine
@@ -30,8 +28,22 @@ services:
       - postgres_db_password
       - postgres_db_name
 
+  nginx: &nginx
+    image: nginx:1.23.1-alpine
+    depends_on:
+      - web
+    restart: always
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s 
+              reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_files:/static_files
+    ports:
+      - 32769:80
+
 volumes:
   database-data:
+  static_files:
 
 secrets:
   postgres_db_user:
