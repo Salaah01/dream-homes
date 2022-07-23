@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  web: &web
+    build: ./web/.
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - /var/www/dream_homes/static/:/static_files
+    env_file: ./web/.web.env
+    command: >
+            bash -c "rm -rf static/
+            && python manage.py migrate
+            && python manage.py collectstatic --noinput
+            && gunicorn main_site.wsgi:application --bind 0.0.0.0:32769 --access-logfile - --error-logfile -"
+    ports:
+      - 32769:32769
+    
+  postgres: &postgres
+    image: postgres:14.4-alpine
+    restart: always
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_USER_FILE=/run/secrets/postgres_db_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_db_password
+      - POSTGRES_DB_FILE=/run/secrets/postgres_db_name
+    secrets:
+      - postgres_db_user
+      - postgres_db_password
+      - postgres_db_name
+
+volumes:
+  database-data:
+
+secrets:
+  postgres_db_user:
+    file: postgres/env/.postgres_db_user.env
+  postgres_db_password:
+    file: postgres/env/.postgres_db_password.env
+  postgres_db_name:
+    file: postgres/env/.postgres_db_name.env
