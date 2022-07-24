@@ -1,0 +1,57 @@
+version: '3.8'
+services:
+  web: &web
+    image: public.ecr.aws/d0r4z6q1/dream-homes:latest
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - static_files:/static_files
+      - media_files:/app/media
+    env_file: ./web/.web.env
+    command: >
+            bash -c "rm -rf static/
+            && python manage.py migrate
+            && python manage.py collectstatic --noinput
+            && gunicorn dream_homes.wsgi:application --bind 0.0.0.0:8000 --access-logfile - --error-logfile -"
+    
+  postgres: &postgres
+    image: postgres:14.4-alpine
+    restart: always
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_USER_FILE=/run/secrets/postgres_db_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_db_password
+      - POSTGRES_DB_FILE=/run/secrets/postgres_db_name
+    secrets:
+      - postgres_db_user
+      - postgres_db_password
+      - postgres_db_name
+
+  nginx: &nginx
+    image: nginx:1.23.1-alpine
+    depends_on:
+      - web
+    restart: always
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s 
+              reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_files:/static_files
+      - media_files:/media_files
+    ports:
+      - 32769:80
+
+volumes:
+  database-data:
+  static_files:
+  media_files:
+
+secrets:
+  postgres_db_user:
+    file: postgres/env/.postgres_db_user.env
+  postgres_db_password:
+    file: postgres/env/.postgres_db_password.env
+  postgres_db_name:
+    file: postgres/env/.postgres_db_name.env
