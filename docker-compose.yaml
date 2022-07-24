@@ -7,6 +7,7 @@ services:
       - postgres
     volumes:
       - static_files:/static_files
+      - media_files:/app/media
     env_file: ./web/.web.env
     command: >
             bash -c "rm -rf static/
@@ -38,12 +39,14 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - static_files:/static_files
+      - media_files:/media_files
     ports:
       - 32769:80
 
 volumes:
   database-data:
   static_files:
+  media_files:
 
 secrets:
   postgres_db_user:
